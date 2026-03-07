@@ -1,0 +1,17 @@
+console.log("kemon aco");
+
+document.getElementById("login-btn").addEventListener("click", function(){
+  const userNameInput = document.getElementById("input-username");
+  const userName = userNameInput.value;
+
+  const passwordInput = document.getElementById("input-password");
+  const password = passwordInput.value;
+
+  if(userName == "admin" && password == "admin123"){
+    window.location.assign("./home.html")
+  }
+  else{
+    alert("Enter Valid Username and Password");
+    return;
+  }
+})

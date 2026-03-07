@@ -1,34 +1,92 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Github-Issue-Tracker</title>
-  <!-- tailwind + daisy ui -->
-   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github-Issue-Tracker</title>
+    <!-- tailwind + daisy ui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-<!-- google font -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
-
-<style>
-  *{
-     font-family: "Geist", sans-serif;
-  }
-</style>
-</head>
-<body class="bg-[#F8FAFC]">
-  <div class="min-h-screen max-w-md mx-auto bg-white">
-    <div>
-      <div>
-        <img src="./assets/github-logo.png" alt="">
+    <style>
+      * {
+        font-family: "Geist", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F8FAFC] min-h-screen flex justify-center items-center">
+    <div class="w-full max-w-md mx-auto bg-white py-5 shadow-lg rounded-lg" >
+      <div class="text-center">
+        <div class="flex items-center justify-center">
+          <img class="w-20 h-20" src="./assets/github-logo.png" alt="" />
+        </div>
+        <h2 class="text-2xl text-[#1F2937] font-semibold pt-3">
+          GitHub Issues Tracker
+        </h2>
+        <p class="text-[#64748B]">Sign in to manage your issues</p>
       </div>
-      <h2>GitHub Issues Tracker</h2>
-      <p>Sign in to manage your issues</p>
+
+      <div class="card-body">
+        <fieldset class="fieldset">
+          <label class="label font-medium text-base text-[#1F2937]"
+            >Username</label
+          >
+          <input id="input-username"
+            type="text"
+            class="input w-full h-8"
+            placeholder="Enter Username"
+          />
+          <div>
+            <a class="link link-hover text-sm text-[#4A00FF]">Default: admin</a>
+          </div>
+          <label class="label font-medium text-base text-[#1F2937]"
+            >Password</label
+          >
+          <input id="input-password"
+            type="password"
+            class="input w-full h-8"
+            placeholder="Enter Password"
+          />
+          <div class="pb-2">
+            <a class="link link-hover text-sm text-[#4A00FF]"
+              >Default: admin123</a
+            >
+          </div>
+          <button id="login-btn" class="btn bg-[#4A00FF] text-white font-semibold h-9">
+            Sign In
+          </button>
+        </fieldset>
+      </div>
+
+      <div class="flex items-center gap-2 px-[26px]">
+        <hr class="flex-1 border-[#E4E4E7]" />
+        <span class="text-[#1F2937]">OR</span>
+        <hr class="flex-1 border-[#E4E4E7]" />
+      </div>
+
+      <div class="px-6 text-center">
+        <h2 class="text-sm text-[#64748B] pt-3 pb-1">Demo Credentials:</h2>
+
+        <div class="bg-[#F8FAFC] p-2 text-justify grid items-center justify-center">
+          <h2 class="font-semibold text-[#1F2937]">Username: <span class="font-normal">admin</span></h2>
+          <h2 class="font-semibold text-[#1F2937]">Password: <span class="font-normal">admin123</span></h2>
+        </div>
+      </div>
     </div>
-  </div>
-</body>
+
+
+    <script src="./script/login.js"></script>
+  </body>
 </html>

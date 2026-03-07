@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github-Issue-Tracker</title>
+    <!-- tailwind + daisy ui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font-Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      * {
+        font-family: "Geist", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bg-white">
+      <div class="navbar shadow-sm px-20">
+        <div class="flex-1 flex items-center gap-2">
+          <img class="w-9 h-9" src="./assets/github-logo.png" alt="" />
+          <a class="text-2xl text-[#1F2937] font-semibold"
+            >GitHub Issues Tracker</a
+          >
+        </div>
+        <div class="flex gap-3">
+          <div class="input">
+            <i class="text-[#64748B] fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              placeholder="Search issues..."
+              class="input-bordered w-24 md:w-auto"
+            />
+          </div>
+          <button class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i>
+            New Issue
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="bg-[#F8FAFC]">
+      <section class="pt-10 pb-4 max-w-4xl mx-auto">
+        <div class="p-5 bg-white rounded-lg flex gap-3 shadow-md">
+          <button class="btn btn-primary px-12 py-3">All</button>
+          <button class="btn px-10 py-3">Open</button>
+          <button class="btn px-9 py-3">Closed</button>
+        </div>
+      </section>
+
+      <section class="max-w-4xl mx-auto shadow-lg">
+        <div
+          class="flex items-center justify-between bg-white p-5 border-b border-[#E4E4E7] rounded-t-lg"
+        >
+          <div class="flex items-center gap-2">
+            <div
+              class="flex items-center justify-center w-12 h-12 rounded-full bg-[#ECE4FF]"
+            >
+              <img src="./assets/Aperture.png" alt="" />
+            </div>
+            <div>
+              <h2 class="text-xl text-[#1F2937] font-semibold">0 Issues</h2>
+              <p class="text-[#64748B]">Track and manage your project issues</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-5">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-[#00A96E]"></div>
+              <h2 class="font-medium">Open</h2>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-[#A855F7]"></div>
+              <h2 class="font-medium">Closed</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="card-container"
+        class="max-w-4xl mx-auto shadow-lg bg-[#FBFBFB] p-6"
+      ></section>
+    </main>
+
+    <footer></footer>
+
+    
+
+    <script src="./script/main.js"></script>
+  </body>
+</html>

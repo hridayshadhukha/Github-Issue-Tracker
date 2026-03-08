@@ -253,6 +253,27 @@ const setActive = (activeId) => {
 loadCards();
 
 
+document.getElementById("search-btn").addEventListener("click", () => {
+
+  const input = document.getElementById("search-input");
+  const searchValue = input.value.trim().toLowerCase();
+
+  manageSpiner(true);
+
+  fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+    .then((res) => res.json())
+    .then((data) => {
+
+      const allIssues = data.data;
+
+      const filterIssues = allIssues.filter((issue) =>
+        issue.title.toLowerCase().includes(searchValue)
+      );
+
+      displayCards(filterIssues);
+
+    });
+});
 
 
 

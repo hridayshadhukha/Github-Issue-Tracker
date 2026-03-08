@@ -80,7 +80,7 @@ const labels = card.labels
     allCards.innerHTML = `
     
 
-    <div class="bg-white shadow-md border-t-4 ${borderColor} rounded-lg">
+    <div onclick="loadCardDetail(${card.id})" class="bg-white shadow-md border-t-4 ${borderColor} rounded-lg">
           <div class="flex flex-col gap-3 px-3 py-6">
             <div class="flex justify-between items-center">
               <div>${statusImage}</div>
@@ -132,6 +132,82 @@ document.getElementById("closedBtn").addEventListener("click", () => {
   setActive("closedBtn");
 });
 
+
+const loadCardDetail = async (id) =>{
+  const url=`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
+
+  const res = await fetch(url);
+  const detail = await res.json();
+  showCardDatail(detail.data)
+}
+
+const showCardDatail = (card) => {
+
+  const labelStyles = {
+  bug: "text-[#EF4444] bg-[#FEECEC]",
+  "help wanted": "text-[#D97706] bg-[#FFF6D1]",
+  enhancement: "text-[#16A34A] bg-[#DCFCE7]",
+  documentation: "text-[#2563EB] bg-[#DBEAFE]",
+  "good first issue": "text-[#7C3AED] bg-[#EDE9FE]",
+};
+
+const labels = card.labels
+  .filter((label) => Object.keys(labelStyles).includes(label))
+  .map((label) => {
+    return `
+      <span class="text-sm font-medium px-3 py-1 whitespace-nowrap rounded-full uppercase ${labelStyles[label]}">
+        ${label}
+      </span>
+    `;
+  })
+  .join("");
+ 
+
+  const detailModal = document.getElementById("detail-container");
+  detailModal.innerHTML = `
+  
+  <div>
+            <h3 id="issue_title" class="text-2xl font-bold mb-2">
+              ${card.title}
+            </h3>
+
+            <div class="flex items-center gap-2 text-sm mb-4">
+              <span class="badge badge-success">${card.status}</span>
+              <span>•</span>
+              <span
+                >Opened by
+                <span id="issue_author" class="font-semibold"
+                  >${card.author}</span
+                ></span
+              >
+              <span>•</span>
+              <span id="issue_date">${new Date(card.createdAt).toLocaleDateString()}</span>
+            </div>
+
+            <div class="flex gap-2 mb-4">
+              <span class="badge">${labels}</span>
+            </div>
+
+            <p id="issue_description" class="text-gray-600 mb-6">
+              ${card.description}
+            </p>
+
+            <div class="bg-base-200 p-4 rounded-lg flex justify-between">
+              <div>
+                <p class="text-sm text-gray-500">Assignee:</p>
+                <p id="issue_assignee" class="font-semibold">${card.author}</p>
+              </div>
+
+              <div>
+                <p class="text-sm text-gray-500">Priority</p>
+                <span id="issue_priority" class="badge badge-error">${card.priority}</span>
+              </div>
+            </div>
+          </div>
+  `
+
+  document.getElementById("my_modal_5").showModal()
+}
 
 
 const setActive = (activeId) => {

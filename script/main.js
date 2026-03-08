@@ -1,6 +1,10 @@
 let allIssues = [];
 
 const loadCards = () => {
+
+  manageSpiner(true)
+
+
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) => {
@@ -112,28 +116,49 @@ const labels = card.labels
 
     cardContainer.append(allCards);
   });
+
+  manageSpiner(false)
 };
 
 
 document.getElementById("allBtn").addEventListener("click", () => {
+  manageSpiner(true)
   displayCards(allIssues);
   setActive("allBtn");
 });
 
 document.getElementById("openBtn").addEventListener("click", () => {
+  manageSpiner(true)
   const openIssues = allIssues.filter((issue) => issue.status === "open");
   displayCards(openIssues);
   setActive("openBtn");
 });
 
+
+
 document.getElementById("closedBtn").addEventListener("click", () => {
+  manageSpiner(true)
   const closedIssues = allIssues.filter((issue) => issue.status === "closed");
   displayCards(closedIssues);
   setActive("closedBtn");
 });
 
 
+const manageSpiner = (status) =>{
+ if(status == true){
+  document.getElementById("spinner").classList.remove("hidden")
+  document.getElementById("card-container").classList.add("hidden")
+ }
+ else{
+  
+  document.getElementById("card-container").classList.remove("hidden")
+  document.getElementById("spinner").classList.add("hidden")
+ }
+}
+
+
 const loadCardDetail = async (id) =>{
+
   const url=`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
 
   const res = await fetch(url);
@@ -226,6 +251,16 @@ const setActive = (activeId) => {
 
 
 loadCards();
+
+
+
+
+
+
+
+
+
+
 
 
 

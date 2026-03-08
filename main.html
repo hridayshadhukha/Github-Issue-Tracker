@@ -63,9 +63,9 @@
     <main class="bg-[#F8FAFC]">
       <section class="pt-10 pb-4 max-w-7xl mx-auto">
         <div class="p-5 bg-white rounded-lg flex gap-3 shadow-md">
-          <button class="btn btn-primary px-12 py-3">All</button>
-          <button class="btn px-10 py-3">Open</button>
-          <button class="btn px-9 py-3">Closed</button>
+          <button id="allBtn" class="btn btn-primary px-12 py-3">All</button>
+<button id="openBtn" class="btn px-10 py-3">Open</button>
+<button id="closedBtn" class="btn px-9 py-3">Closed</button>
         </div>
       </section>
 
@@ -80,7 +80,7 @@
               <img src="./assets/Aperture.png" alt="" />
             </div>
             <div>
-              <h2 class="text-xl text-[#1F2937] font-semibold">0 Issues</h2>
+              <h2 id="issues-count" class="text-xl text-[#1F2937] font-semibold">0 Issues</h2>
               <p class="text-[#64748B]">Track and manage your project issues</p>
             </div>
           </div>
@@ -100,15 +100,11 @@
 
       <section
         id="card-container"
-        class="grid grid-cols-4 gap-2 max-w-7xl mx-auto shadow-lg bg-[#FBFBFB] p-6"
+        class="grid grid-cols-4 gap-3 max-w-7xl mx-auto shadow-lg bg-[#FBFBFB] p-2"
       ></section>
     </main>
 
-    <footer>
-      
-    </footer>
-
-    
+    <footer></footer>
 
     <script src="./script/main.js"></script>
   </body>

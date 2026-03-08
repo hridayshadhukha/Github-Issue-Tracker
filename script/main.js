@@ -240,7 +240,7 @@ const labels = card.labels
             <div class="bg-base-200 p-4 rounded-lg flex items-center gap-40">
               <div>
                 <p class="text-base text-[#64748B]">Assignee:</p>
-                <p id="issue_assignee" class="font-semibold text-base text-[#1F2937]">${card.author}</p>
+                <p id="issue_assignee" class="font-semibold text-base text-[#1F2937]">${card.assignee}</p>
               </div>
 
               <div>

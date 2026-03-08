@@ -168,6 +168,26 @@ const loadCardDetail = async (id) =>{
 
 const showCardDatail = (card) => {
 
+
+  let statusColor = "";
+
+if (card.status === "open") {
+  statusColor = "bg-[#00A96E] text-white";
+} else {
+  statusColor = "bg-[#A855F7] text-white";
+}
+
+
+let badgeColor = "";
+
+    if (card.priority === "high") {
+      badgeColor = "text-white bg-[#EF4444]";
+    } else if (card.priority === "medium") {
+      badgeColor = "text-white bg-[#D97706]";
+    } else {
+      badgeColor = "text-white bg-[#9CA3AF]";
+    }
+
   const labelStyles = {
   bug: "text-[#EF4444] bg-[#FEECEC]",
   "help wanted": "text-[#D97706] bg-[#FFF6D1]",
@@ -197,35 +217,35 @@ const labels = card.labels
             </h3>
 
             <div class="flex items-center gap-2 text-sm mb-4">
-              <span class="badge badge-success">${card.status}</span>
+              <span class="badge ${statusColor} rounded-full text-sm text-white">${card.status}</span>
               <span>•</span>
               <span
-                >Opened by
-                <span id="issue_author" class="font-semibold"
+                 class="text-[#64748B]">Opened by
+                <span id="issue_author"
                   >${card.author}</span
                 ></span
               >
               <span>•</span>
-              <span id="issue_date">${new Date(card.createdAt).toLocaleDateString()}</span>
+              <span id="issue_date" class="text-[#64748B]">${new Date(card.createdAt).toLocaleDateString()}</span>
             </div>
 
-            <div class="flex gap-2 mb-4">
+            <div class="flex gap-2 mb-4 -translate-x-3 py-3">
               <span class="badge">${labels}</span>
             </div>
 
-            <p id="issue_description" class="text-gray-600 mb-6">
+            <p id="issue_description" class="text-[#64748B] text-base mb-6">
               ${card.description}
             </p>
 
-            <div class="bg-base-200 p-4 rounded-lg flex justify-between">
+            <div class="bg-base-200 p-4 rounded-lg flex items-center gap-40">
               <div>
-                <p class="text-sm text-gray-500">Assignee:</p>
-                <p id="issue_assignee" class="font-semibold">${card.author}</p>
+                <p class="text-base text-[#64748B]">Assignee:</p>
+                <p id="issue_assignee" class="font-semibold text-base text-[#1F2937]">${card.author}</p>
               </div>
 
               <div>
-                <p class="text-sm text-gray-500">Priority</p>
-                <span id="issue_priority" class="badge badge-error">${card.priority}</span>
+                <p class="text-base text-[#64748B]">Priority</p>
+                <span id="issue_priority" class="badge ${badgeColor} rounded-full text-lg">${card.priority}</span>
               </div>
             </div>
           </div>

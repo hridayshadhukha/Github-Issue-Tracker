@@ -37,7 +37,7 @@
   </head>
   <body>
     <header class="bg-white">
-      <div class="navbar shadow-sm px-10">
+      <div class="navbar shadow-sm px-10 grid grid-cols-1 gap-5 md:flex">
         <div class="flex-1 flex items-center gap-2">
           <img class="w-9 h-9" src="./assets/github-logo.png" alt="" />
           <a class="text-2xl text-[#1F2937] font-semibold"
@@ -50,22 +50,22 @@
             <input id="search-input"
               type="text"
               placeholder="Search issues..."
-              class="input-bordered w-24 md:w-auto"
+              class="input-bordered"
             />
           </div>
-          <button id="search-btn" class="btn btn-primary">
+          <button id="search-btn" class= " btn btn-primary">
             <i class="fa-solid fa-plus"></i>
             New Issue
           </button>
         </div>
       </div>
     </header>
-    <main class="bg-[#F8FAFC]">
+    <main class="bg-[#F8FAFC] pb-10">
       <section class="pt-10 pb-4 max-w-7xl mx-auto">
         <div class="p-5 bg-white rounded-lg flex gap-3 shadow-md">
-          <button id="allBtn" class="btn btn-primary px-12 py-3">All</button>
-          <button id="openBtn" class="btn px-10 py-3">Open</button>
-          <button id="closedBtn" class="btn px-9 py-3">Closed</button>
+          <button id="allBtn" class="btn btn-primary px-10 py-2 md:px-12 md:py-3">All</button>
+          <button id="openBtn" class="btn px-8 py-2 md:px-10 md:py-3">Open</button>
+          <button id="closedBtn" class="btn px-7 py-2 md:px-9 md:py-3">Closed</button>
         </div>
       </section>
 
@@ -78,7 +78,7 @@
 
       <section class="max-w-7xl mx-auto shadow-lg">
         <div
-          class="flex items-center justify-between bg-white p-5 border-b border-[#E4E4E7] rounded-t-lg"
+          class="flex flex-col md:flex-row md:items-center md:justify-between bg-white p-5 border-b border-[#E4E4E7] rounded-t-lg"
         >
           <div class="flex items-center gap-2">
             <div
@@ -97,7 +97,7 @@
             </div>
           </div>
 
-          <div class="flex items-center gap-5">
+          <div class="flex items-center gap-5 mt-4 md:mt-0">
             <div class="flex items-center gap-2">
               <div class="w-3 h-3 rounded-full bg-[#00A96E]"></div>
               <h2 class="font-medium">Open</h2>
@@ -112,13 +112,13 @@
 
       <section
         id="card-container"
-        class="grid grid-cols-4 gap-3 max-w-7xl mx-auto shadow-lg bg-[#FBFBFB] p-2"
+        class="grid grid-cols-1 md:grid-cols-4 gap-3 max-w-7xl mx-auto shadow-lg bg-[#FBFBFB] p-2 pb-10 rounded-b-lg"
       ></section>
     </main>
 
   
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-      <div class="modal-box">
+      <div class="modal-box max-w-xl">
         <div id="detail-container">
           
         </div>

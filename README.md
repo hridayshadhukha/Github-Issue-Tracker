@@ -22,7 +22,7 @@ A: map(), filter() and forEach() all work on arrays, but their usage is differen
 A: An arrow function is a function written in a short syntax. It uses => instead of the normal function keyword. It is usually used to compact code and preserve context.
 
 
-#### Q5. What are template literals?
+### Q5. What are template literals?
 A: Template literals are a special type of string that is written with a backtick (`). They allow you to easily use variables, expressions, or multi-line strings. Variables or expressions can be embedded using the ${} syntax.
 
 
